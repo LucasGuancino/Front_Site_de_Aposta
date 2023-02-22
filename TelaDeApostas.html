@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+    <head>
+        <style>
+            #sidebar {
+                position: fixed; /* fixa o navbar na tela */
+                top: 0; /* coloca o navbar no topo da tela */
+                left: 0; /* coloca o navbar na esquerda da tela */
+                width: 200px; /* define a largura do navbar */
+                height: 100%; /* define a altura do navbar */
+                background-color: #333; /* define a cor de fundo do navbar */
+                overflow: auto; /* adiciona barras de rolagem, se necessário */
+              }
+              
+              #sidebar ul {
+                list-style: none; /* remove os marcadores da lista */
+                padding: 0; /* remove os espaçamentos da lista */
+                margin: 0; /* remove as margens da lista */
+              }
+              
+              #sidebar li a {
+                display: block; /* transforma cada item da lista em um bloco */
+                color: white; /* define a cor do texto */
+                text-decoration: none; /* remove a decoração do texto */
+                padding: 10px; /* adiciona um espaçamento interno */
+                border-bottom: 1px solid #444; /* adiciona uma borda inferior */
+              }
+              
+              #sidebar li a:hover {
+                background-color: #444; /* muda a cor de fundo ao passar o mouse */
+              }
+              .login-container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                height: 100vh;
+              }
+              table, th, td{                
+                border: 3px solid #4caf50;
+                text-align: center;
+                background-color: white;
+              }
+              input{
+                text-align: center;
+                border-color: #4caf50;
+              }
+              body{
+                background-image: url('imagem.jpg');
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: center;
+              }
+              h1{
+                color: white;
+              }
+              button {
+                margin-top: 5px;
+                padding: 8px;
+                border: none;
+                border-radius: 3px;
+                background-color: #4caf50;
+                color: white;
+                font-size: 14px;
+                cursor: pointer;
+                display: block;
+                width: 100%;
+              }
+              footer{
+                color: white;
+                position: absolute;
+                bottom: 0;
+                text-align: center;          
+              }
+              #menu-button {
+                position: fixed;
+                cursor: pointer;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                height: 2rem;
+                width: 2rem;
+              }
+              
+              #menu-button span {
+                background-color: #333;
+                height: 0.25rem;
+                width: 100%;
+              }            
+        </style>
+        <link rel="shortcut icon" href="icon.ico">
+        <title>LBet - Apostas Esportivas</title>
+    </head>
+    <body>
+        <button id="menu-button">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav id="sidebar">
+            <ul>
+              <li><a href="TelaDeApostas.html">Home</a></li>
+              <li><a href="Perfil.html">Meu Perfil</a></li>
+              <li><a href="TelaDeResultados.html">Resultados</a></li>
+              <li><a href="login.html">Sair/Desconectar</a></li>
+            </ul>
+            <footer>
+                Usuário:
+            </footer>
+          </nav>
+          <div class="login-container">
+            <h1>Bolão do Grupo G</h1>
+            <div>
+                <table>
+                    <tr>
+                        <th>Jogo</th>
+                        <th>Seleção</th>
+                        <th>Gols</th>
+                        <th>X</th>
+                        <th>Gols</th>
+                        <th>Seleção</th>
+                    </tr>
+                    <tr>
+                        <td>Jogo 1</td>
+                        <td>Brasil</td>
+                        <td><input type="number" name="result1" value="0"></td>
+                        <td>X</td>
+                        <td><input type="number" name="result2" value="0"></td>
+                        <td>Sérvia</td>
+                    </tr>
+                    <tr>
+                        <td>Jogo 2</td>
+                        <td>Camarões</td>
+                        <td><input type="number" name="result3" value="0"></td>
+                        <td>X</td>
+                        <td><input type="number" name="result4" value="0"></td>
+                        <td>Suiça</td>
+                    </tr>
+                    <tr>
+                        <td>Jogo 3</td>
+                        <td>Brasil</td>
+                        <td><input type="number" name="result5" value="0"></td>
+                        <td>X</td>
+                        <td><input type="number" name="result6" value="0"></td>
+                        <td>Suiça</td>
+                    </tr>                
+                    <tr>
+                        <td>Jogo 4</td>
+                        <td>Camarões</td>
+                        <td><input type="number" name="result7" value="0"></td>
+                        <td>X</td>
+                        <td><input type="number" name="result8" value="0"></td>
+                        <td>Sérvia</td>
+                    </tr>
+                    <tr>
+                        <td>Jogo 5</td>
+                        <td>Camarões</td>
+                        <td><input type="number" name="result9" value="0"></td>
+                        <td>X</td>
+                        <td><input type="number" name="result10" value="0"></td>
+                        <td>Brasil</td>
+                    </tr>
+                    <tr>
+                        <td>Jogo 6</td>
+                        <td>Sérvia</td>
+                        <td><input type="number" name="result11" value="0"></td>
+                        <td>X</td>
+                        <td><input type="number" name="result12" value="0"></td>
+                        <td>Suiça</td>
+                    </tr>
+                </table>
+                <button onclick="handlesubmit()">Enviar Palpite</button>
+            </div>
+        </div>
+    </body>
+    <script>
+        const sidebar = document.getElementById('sidebar');
+    
+        document.addEventListener('mousemove', (event) => {
+          if (event.clientX > 200) {
+            sidebar.style.display = 'none';
+          }
+        });
+
+        const menuButton = document.getElementById('menu-button');
+        const navBar = document.getElementById('sidebar');
+        
+        menuButton.addEventListener('click', () => {
+          navBar.style.display = navBar.style.display === 'none' ? 'block' : 'none';
+        });
+
+        function handlesubmit(){
+            alert("Palpite enviado com sucesso! Você pode verifica-lo no seu perfil.");
+        }
+      </script>
+</html>

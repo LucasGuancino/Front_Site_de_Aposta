@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+    <head>
+        <style>
+            .login-container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;                
+              }    
+              #sidebar {
+                position: fixed; /* fixa o navbar na tela */
+                top: 0; /* coloca o navbar no topo da tela */
+                left: 0; /* coloca o navbar na esquerda da tela */
+                width: 200px; /* define a largura do navbar */
+                height: 100%; /* define a altura do navbar */
+                background-color: #333; /* define a cor de fundo do navbar */
+                overflow: auto; /* adiciona barras de rolagem, se necessário */
+              }
+              
+              #sidebar ul {
+                list-style: none; /* remove os marcadores da lista */
+                padding: 0; /* remove os espaçamentos da lista */
+                margin: 0; /* remove as margens da lista */
+              }
+              
+              #sidebar li a {
+                display: block; /* transforma cada item da lista em um bloco */
+                color: white; /* define a cor do texto */
+                text-decoration: none; /* remove a decoração do texto */
+                padding: 10px; /* adiciona um espaçamento interno */
+                border-bottom: 1px solid #444; /* adiciona uma borda inferior */
+              }
+              
+              #sidebar li a:hover {
+                background-color: #444; /* muda a cor de fundo ao passar o mouse */
+              }
+              footer{
+                color: white;
+                position: absolute;
+                bottom: 0;
+                text-align: center;          
+              }
+              button {
+                margin: 10px;
+                padding: 8px;
+                border: none;
+                border-radius: 3px;
+                color: white;
+                font-size: 14px;
+                cursor: pointer;
+                display: block;
+                width: 100%;
+              }
+              #menu-button {
+                position: fixed;
+                cursor: pointer;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                height: 2rem;
+                width: 2rem;
+              }
+              
+              #menu-button span {
+                background-color: #333;
+                height: 0.25rem;
+                width: 100%;
+              }            
+        </style>
+        <link rel="shortcut icon" href="icon.ico">
+        <title>LBet - Apostas Esportivas</title>    
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <button id="menu-button">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav id="sidebar">
+            <ul>
+              <li><a href="TelaDeApostas.html">Home</a></li>
+              <li><a href="Perfil.html">Meu Perfil</a></li>
+              <li><a href="TelaDeResultados.html">Resultados</a></li>
+              <li><a href="login.html">Sair/Desconectar</a></li>
+            </ul>
+            <footer>
+                Usuário:
+            </footer>
+        </nav>
+        <div class="login-container">            
+            <h2>Resultado do Bolão</h2>
+            <table id="tabela" class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Posição</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Acertos</th>            
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Lucas Guancino</td>
+                        <td>5</td>                    
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Marlon</td>
+                        <td>3</td>                        
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td>João Gilini</td>
+                        <td>1</td>                    
+                    </tr>
+                </tbody>
+            </table>            
+        </div>
+    </body>
+    <script>
+        const sidebar = document.getElementById('sidebar');
+    
+        document.addEventListener('mousemove', (event) => {
+          if (event.clientX > 200) {
+            sidebar.style.display = 'none';
+            document.getElementById('tabela').style.marginLeft = '0px';
+          }
+        });
+
+        const menuButton = document.getElementById('menu-button');
+        const navBar = document.getElementById('sidebar');
+
+        menuButton.addEventListener('click', () => {
+          navBar.style.display = navBar.style.display === 'none' ? 'block' : 'none';
+          document.getElementById('tabela').style.marginLeft = '400px';
+        });
+    </script>
+</html>
